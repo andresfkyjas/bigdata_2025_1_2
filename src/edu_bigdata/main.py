@@ -14,8 +14,11 @@ def main():
     print(df.shape)
     print(df.head())
     df.to_csv("src/edu_bigdata/static/csv/data_web.csv", index=False) #/workspaces/bigdata_2025_1_2/src/edu_bigdata/static/csv
-    database.close_database()
-
+    nombre_tabla = "dolar_analisis"
+    database.insert_data(df,nombre_tabla)
+    df_2 = database.read_data(nombre_tabla)
+    print(df_2.shape)
+    print(df_2.head())
 
 if __name__ == "__main__":
     main()
