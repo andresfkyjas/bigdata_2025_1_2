@@ -26,6 +26,7 @@ class DataBase:
                 conn = sqlite3.connect(self.db_name)
                 query= "select * from {}".format(nom_table)
                 df = pd.read_sql_query(sql=query,con=conn)
+                print("*************** consulta base datos tabla: {}*********".format(query))
                 conn.close
                 return df
         except Exception as errores:
